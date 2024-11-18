@@ -6,19 +6,19 @@ Die Abstufung der Schwierigkeiten kann man als gerichteten Graphen interpretiere
 
 Wenn man nun von einem zufälligen Knoten aus eine zufällige Abfolge von Schritten geht, ist es wahrscheinlich (nicht sicher, da es bei Konflikten auch Kanten in beide Richtungen geben kann), bei einer schwereren Aufgabe zu landen.
 
-Diese Idee wird im sog. “Random-Surfer-Model” realisiert. Sei $G$ der Graph, der die oben genannte Eigenschaft erfüllt. Dann müssen wir zunächst die Adjazenzmatrix $A_G$ des Graphen berechnen. Anschließend konstruieren wir die Übergangsmatrix, indem wir die Zeilensumme der Spalten der Adjazenzmatrix berechnen und alle Einträge der entsprechenden Zeilen durch die Zeilensumme teilen (die Zeilensummen aller Zeilen der Übergangsmatrix sind 1). Nun beschreibt $P_{G \space i, j}$ die Wahrscheinlichkeit, dass der Random-Surfer in einem Schritt vom Knoten $i$ zum Knoten $j$ gelangt. ($i, j \in [n]$, wobei $n = \#\text{Aufgaben}$, Umbenennung der Knoten im Prinzip beliebig, im folgenden in der Reihenfolge des Alphabets, also $A \to 1, B \to 2, C \to 3, …$)
+Diese Idee wird im sog. “Random-Surfer-Model” realisiert. Sei $G$ der Graph, der die oben genannte Eigenschaft erfüllt. Dann müssen wir zunächst die Adjazenzmatrix $A_G$ des Graphen berechnen. Anschließend konstruieren wir die Übergangsmatrix, indem wir die Zeilensumme der Spalten der Adjazenzmatrix berechnen und alle Einträge der entsprechenden Zeilen durch die Zeilensumme teilen (die Zeilensummen aller Zeilen der Übergangsmatrix sind 1). Nun beschreibt $P_{G \space i, j}$ die Wahrscheinlichkeit, dass der Random-Surfer in einem Schritt vom Knoten $i$ zum Knoten $j$ gelangt. ($i, j \in [n]$, wobei $n = \text{Anzahl Aufgaben}$, Umbenennung der Knoten im Prinzip beliebig, im folgenden in der Reihenfolge des Alphabets, also $A \to 1, B \to 2, C \to 3, …$)
 
-Behauptung: für $k \in \N$ ist $P_{G \space i, j}^k$ die Wahrscheinlichkeit, dass der Random-Surfer in $k$ Schritten vom Knoten $i$ zum Knoten $j$ gelangt.
+Behauptung: für $k \in N$ ist $P_{G \space i, j}^k$ die Wahrscheinlichkeit, dass der Random-Surfer in $k$ Schritten vom Knoten $i$ zum Knoten $j$ gelangt.
 
 ### Beweis:
 
 Sei $\phi_{i, j}^k$ die Menge aller $k$-Schritt-Pfade von $i$ nach $j$, sei $\Phi_i^k$ die menge aller $k$-Schritt-Pfade von $i$ aus. geht der Random-Surfer nun von $i$ aus einen zufälligen $k$-Schritt-Pfad, ist die Wahrscheinlichkeit, dass er am Ende zu $j$ gelangt gleich $|\phi_{i, j}^k| / |\Phi_i^k|$. 
 
-Behauptung: für $k \in \N$ ist $P_{G \space i, j}^k = |\phi_{i, j}^k| / |\Phi_i^k|$ (daraus folgt die ursprüngliche Behauptung)
+Behauptung: für $k \in N$ ist $P_{G \space i, j}^k = |\phi_{i, j}^k| / |\Phi_i^k|$ (daraus folgt die ursprüngliche Behauptung)
 
 Induktionsbasis: $k = 1$, $P_{G \space i, j}^1 = P_{G \space i, j} = |\phi_{i, j}^1| / |\Phi_i^1|$ folgt aus der Konstruktion von $P_G$
 
-Induktionsschritt: Sei $k \in \N$ beliebig fixiert.
+Induktionsschritt: Sei $k \in N$ beliebig fixiert.
 
 Induktionsannahme: Es gilt $P_{G \space i, j}^k = |\phi_{i, j}^k| / |\Phi_i^k|$
 
